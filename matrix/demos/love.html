@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .item0{
+            width: 20px;
+            height: 20px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            float: left;
+            background: white;
+        }
+        .item1{
+            width: 20px;
+            height: 20px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            background: #2288ee;
+            float: left;
+        }
+        .cf:after{
+            content: '';
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<h2>下面是数据的结构，1代表实体字，0代表空白背景</h2>
+<div id="love-data">
+
+</div>
+<h2>下面是你通过下面的数据结构，添加固定的样式，渲染出'love'字体</h2>
+<div id="love" class="cf"></div>
+<h2>下面是让二维的数据结构进行移动的图像</h2>
+<div id="madge" class="cf"></div>
+<script src="./../matrix.js"></script>
+<script src="love.js"></script>
+</body>
+</html>

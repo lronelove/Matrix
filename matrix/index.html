@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>matrix</title>
+</head>
+
+<body>
+<h2>这是最开始的数据结构</h2>
+<div id="container">
+
+</div>
+<h2>这是向右移动一位的数据结构</h2>
+<div class="animate">
+
+</div>
+<h2>这是继续再向上移动的数据结构</h2>
+<div class="animate2"></div>
+<script src="matrix.js"></script>
+<script>
+    let maxtrix=new Matrix(3,3);
+    for(let i=1;i<4;i++){
+        maxtrix.set(1,i,i);
+    }
+    for(let i=4;i<7;i++){
+        maxtrix.set(2,i-3,i);
+    }
+    for(let i=7;i<10;i++){
+        maxtrix.set(3,i-6,i);
+    }
+    maxtrix.render('#container');
+    console.log(maxtrix);
+    maxtrix.animate(1,0);
+    maxtrix.render('.animate');
+    maxtrix.animate(0,1);
+    maxtrix.render('.animate2');
+</script>
+</body>
+</html>
