@@ -1,0 +1,117 @@
+body{
+    padding-bottom: 100px;
+    background: #333;
+}
+*{
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.star{
+    width: 30px;
+    height: 30px;
+    float: left;
+    background: url("./images/star.png") no-repeat center center;
+    background-size: 20px 20px;
+}
+.default{
+    width: 30px;
+    height: 30px;
+    float: left;
+}
+.love{
+    width: 30px;
+    height: 30px;
+    float: left;
+    background: url("./images/star.png")no-repeat center center;
+    background-size: 20px 20px;
+    animation: Love 1 .2s;
+    transition: all .2s;
+}
+.moon{
+    width: 30px;
+    height: 30px;
+    float: left;
+    background: url("./images/moon.png") no-repeat center center;
+    background-size: 60px 60px;
+}
+@keyframes Love{
+    0%{
+        transform: scale(0);
+        opacity: 0;
+    }
+    25%{
+        transform: scale(1) rotate(180deg);
+        opacity: 0.5;
+    }
+    50%{
+        transform: scale(3) rotate(360deg);
+        opacity: 1;
+    }
+    75%{
+        transform: rotate(540deg);
+        opacity: .5;
+    }
+    100%{
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+.words::after{
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    content: 'love is like the shining star';
+    font-size: 12px;
+    color:royalblue;
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%);
+    animation: Words 5s;
+}
+.meteor{
+    height: 30px;
+    width: 30px;
+    float: left;
+}
+.meteor::after{
+    content: '';
+    width: 60px;
+    height: 60px;
+    background:red url("./images/meteor.png")no-repeat center center;
+    background-size: cover;
+}
+@keyframes Words {
+    0%{
+        opacity: 0;
+        transform: translate(-50%) scale(0) rotate(-180deg);
+    }
+    50%{
+        opacity: 1;
+        transform: translate(-50%) scale(3) rotate(0deg);
+    }
+    100%{
+        opacity: 0;
+        transform: translate(-50%) scale(0) rotate(180deg);
+    }
+}
+.cf::after{
+    content: '';
+    display: table;
+    clear: both;
+}
+#plane{
+    transition: all .3s;
+    position: relative;
+    z-index:10;
+    margin: 200px auto 0;
+    width: 1200px;
+    height: 300px;
+    background: url("./images/plane_bg.jpeg")no-repeat center center;
+    background-size: cover;
+}
