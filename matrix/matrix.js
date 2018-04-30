@@ -15,7 +15,7 @@ Matrix.prototype.print=function(){
     return this.data;
 };
 //设置第col列，row行的数据 test ok
-Matrix.prototype.set=function (col,row,value) {
+Matrix.prototype.set=function (row,col,value) {
     this.data[col-1][row-1]=value;
     return this.data;
 };
@@ -97,7 +97,7 @@ Matrix.prototype.find=function (target) {
     for(let i=0,len1=this.data.length;i<len1;i++){
         for(let j=0,len2=this.data[0].length;j<len2;j++){
             if(this.data[i][j]===target){
-                return [i,j];
+                return [i+1,j+1];
             }
         }
     }
@@ -162,12 +162,46 @@ Matrix.prototype.animate=function(right,top){
         this.moveToRight(right);
     }
     if(top<0){
-        let steps=this.row+top;
+        let steps=this.col+top;
         this.moveToTop(steps);
     }else{
         this.moveToTop(top);
     }
 };
+//获取第几行第几列的值
+Matrix.prototype.get=function(row,col){
+    return this.data[row-1][col-1];
+};
+
+//下面是一个区块的数据移动的函数
+Matrix.prototype.blockAnimate=function(row1,col1,row2,col2,right,top){
+    //先获取这个区块的二维数组
+    //先获取这个矩形区域的最小和最大行数和列数
+    let minRow=Math.min(row1,row2);
+    let maxRow=Math.max(row1,row2);
+    let minCol=Math.min(col1,col2);
+    let maxCol=Math.max(col1,col2);
+    //构建一个新的二维数组
+    let childRow=maxRow-minRow+1;
+    let childCol=maxCol-minCol+1;
+    let childMatrix=new Matrix(childRow,childCol);
+    //把对应的数据填进去
+    for(let i=1;i<=childRow;i++){
+        for(let j=1;j<=childCol;j++){
+            childMatrix.set(j,i,this.get(minRow+i-1,minCol+j-1));
+        }
+    }
+        childMatrix.animate(right,top);//子数据模块移动
+    //把子数据对应的数据重新放回父级数据结构里面
+    for(let i=1;i<=childRow;i++){
+        for(let j=1;j<=childCol;j++){
+            matrix.set(minRow+i-1,minCol+j-1,childMatrix.get(j,i));
+        }
+    }
+    return this.data;
+};
+//下面是一个区块的数据移动的函数
+
 
 //下面是一个渲染的函数，便于展示二维数组 ok
 Matrix.prototype.render=function(selector){
