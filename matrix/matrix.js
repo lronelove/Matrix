@@ -20,24 +20,24 @@ Matrix.prototype.print = function () {
 
 //设置第col列，row行的数据 test ok
 Matrix.prototype.set = function (row, col, value) {
-    this.data[col-1][row-1] = value;
+    this.data[row - 1][[col - 1]] = value;
     return this.data;
 };
 
 //交换两行 test ok
 Matrix.prototype.changeRow = function (row1, row2) {
-    let cur = this.data[row1-1];
-    this.data[row1-1] = this.data[row2-1];
-    this.data[row2-1] = cur;
+    let cur = this.data[row1 - 1];
+    this.data[row1 - 1] = this.data[row2 - 1];
+    this.data[row2 - 1] = cur;
     return this.data;
 };
 
 //交换两列 test ok
 Matrix.prototype.changeCol = function (row1,row2) {
     for(let i = 0,len = this.row; i < len; i++) {
-        let cur = this.data[i][row1-1];
-        this.data[i][row1-1] = this.data[i][row2-1];
-        this.data[i][row2-1] = cur;
+        let cur = this.data[i][row1 - 1];
+        this.data[i][row1 - 1] = this.data[i][row2 - 1];
+        this.data[i][row2 - 1] = cur;
     }
     return this.data;
 };
