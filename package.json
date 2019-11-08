@@ -1,0 +1,20 @@
+{
+  "name": "matrix-lronelove",
+  "version": "1.2.0",
+  "description": "A tool to operate the Array of two dimension It may be easy to handle the Array of one dimension because of the API that we know. But It may be hard to operate the Array of two dimension. So I thought about this when I wanted to make a game of snake. If I can change the data of the snake, It will be easy to make the game of snake. That is just a example, now let's see how to use it.",
+  "main": "index.js",
+  "scripts": {
+    "build": "parcel build ./src/matrix.js -o ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lronelove/Matrix.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lronelove/Matrix/issues"
+  },
+  "homepage": "https://github.com/lronelove/Matrix#readme"
+}

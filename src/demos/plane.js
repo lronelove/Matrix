@@ -13,10 +13,10 @@ function creatStars(num) {
         col=floor(random()*40+1);
         matrix.set(row,col,1);
     }
-    // matrix.set(meteorRow,meteorCol,4);
+    // src.set(meteorRow,meteorCol,4);
 }
 creatStars(30);
-// matrix.render('.container');
+// src.render('.container');
 //下面是构建你的渲染的函数
 function render(selector,matrix,callback) {
     let container=document.querySelector(selector);
